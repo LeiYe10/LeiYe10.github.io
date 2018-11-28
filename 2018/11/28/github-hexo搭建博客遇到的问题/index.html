@@ -16,7 +16,10 @@
 <meta property="og:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次hexo deploy 之后，custom domain 会被重">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png">
-<meta property="og:updated_time" content="2018-11-28T03:27:06.193Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic2.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic3.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic4.png">
+<meta property="og:updated_time" content="2018-11-28T03:42:53.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo搭建博客遇到的问题">
 <meta name="twitter:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次hexo deploy 之后，custom domain 会被重">
@@ -181,6 +184,51 @@
 <p><code>!\[你想要输入的替代文字]\(xxxx/图片名.jpg)</code></p>
 <p>ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。</p>
 <p>5.最后检查一下，<code>hexo g</code>生成页面后，进入<code>public\2017\02\26\index.html</code>文件中查看相关字段，可以发现，html标签内的语句是<code>&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;</code>，而不是<code>&lt;img src=&quot;xxxx/图片名.jpg&gt;</code>。这很重要，关乎你的网页是否可以真正加载你想插入的图片。这就成功了，当然前面步骤操作正确的话，这一步也不用检查。</p>
+<h3 id="3-换电脑之后怎么解决："><a href="#3-换电脑之后怎么解决：" class="headerlink" title="3.换电脑之后怎么解决："></a>3.换电脑之后怎么解决：</h3><p>原博客地址：<a href="https://www.cnblogs.com/study-everyday/p/8902136.html" target="_blank" rel="noopener">换了电脑如何使用hexo继续写博客</a></p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="一、安装必要软件"><a href="#一、安装必要软件" class="headerlink" title="一、安装必要软件"></a>一、安装必要软件</h3><p>安装 Git 客户端</p>
+<p>安装 node JS</p>
+<h3 id="二、在-github-官网添加新电脑产生的密钥"><a href="#二、在-github-官网添加新电脑产生的密钥" class="headerlink" title="二、在 github 官网添加新电脑产生的密钥"></a>二、在 github 官网添加新电脑产生的密钥</h3><p>参考我的另一篇文章：<a href="http://fengdaoting.com/2018/02/27/%E6%8A%80%E6%9C%AF%E7%BB%BC%E5%90%88/hexo%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E5%88%B0Github%E5%A4%B1%E8%B4%A5/" target="_blank" rel="noopener">hexo上部署博客到Github失败</a></p>
+<h3 id="三、源文件拷贝"><a href="#三、源文件拷贝" class="headerlink" title="三、源文件拷贝"></a>三、源文件拷贝</h3><p>将你原来电脑上个人博客目录下必要文件拷到你的新电脑上（比如F:/Blog目录下），注意无需拷全部，只拷如下几个目录：</p>
+<ol>
+<li><code>_config.yml</code></li>
+<li><code>package.json</code></li>
+<li><code>scaffolds/</code></li>
+<li><code>source/</code></li>
+<li><code>themes/</code></li>
+</ol>
+<h3 id="四、安装-hexo"><a href="#四、安装-hexo" class="headerlink" title="四、安装 hexo"></a>四、安装 hexo</h3><p>在 cmd 下输入下面指令安装 hexo：</p>
+<ol>
+<li><code>npm install hexo-cli -g</code></li>
+</ol>
+<h3 id="五、进入-F-Blog-目录（你拷贝到新电脑的目录），输入下面指令安装相关模块"><a href="#五、进入-F-Blog-目录（你拷贝到新电脑的目录），输入下面指令安装相关模块" class="headerlink" title="五、进入 F:/Blog 目录（你拷贝到新电脑的目录），输入下面指令安装相关模块"></a>五、进入 F:/Blog 目录（你拷贝到新电脑的目录），输入下面指令安装相关模块</h3><ol>
+<li><code>npm install</code></li>
+<li><code>npm install hexo-deployer-git --save</code> // 文章部署到 git 的模块</li>
+<li>（下面为选择安装）</li>
+<li><code>npm install hexo-generator-feed --save</code> // 建立 RSS 订阅</li>
+<li><code>npm install hexo-generator-sitemap --save</code> // 建立站点地图</li>
+</ol>
+<h3 id="六、测试"><a href="#六、测试" class="headerlink" title="六、测试"></a>六、测试</h3><p>这时候使用 <code>hexo s</code> 基本可以看到你新添加的文章了。</p>
+<h3 id="七、部署发布文章"><a href="#七、部署发布文章" class="headerlink" title="七、部署发布文章"></a>七、部署发布文章</h3><ol>
+<li><code>hexo clean</code> // 清除缓存 网页正常情况下可以忽略此条命令</li>
+<li><code>hexo g</code> // 生成静态网页</li>
+<li><code>hexo d</code> // 开始部署</li>
+</ol>
+<h3 id="八、Github-添加-SSH-Keys"><a href="#八、Github-添加-SSH-Keys" class="headerlink" title="八、Github 添加 SSH Keys"></a>八、Github 添加 SSH Keys</h3><p>首先在本地创建 <code>SSH Keys</code>:</p>
+<p><code>$ ssh-keygen -t rsa -C &quot;wujiajiansh@163.com&quot;</code></p>
+<p>后面的邮箱即为 github 注册邮箱，也是你登录 Github 的邮箱，之后会要求确认路径和输入密码，一路回车就行。</p>
+<p>成功的话会在 <code>~/</code>下生成 <code>.ssh</code>文件夹，进去，打开 <code>id_rsa.pub</code>，复制里面的<code>key</code>即可。</p>
+<p><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic2.png" alt=""></p>
+<p>输入 eval “$(ssh-agent -s)” ，添加密钥到ssh-agent，再输入 ssh-add ~/.ssh/id_rsa ，添加生成的SSH key到ssh-agent</p>
+<p><code>1.  JaJian@DESKTOP-H2C0ES1 MINGW64 /d/hexo</code><br><code>2.  $ eval  &quot;$(ssh-agent -s)&quot;</code><br><code>3.  Agent pid 5516</code></p>
+<p><code>5.  JaJian@DESKTOP-H2C0ES1 MINGW64 /d/hexo</code><br><code>6.  $ ssh-add ~/.ssh/id_rsa</code><br><code>7.  Identity added:  /c/Users/JaJian/.ssh/id_rsa (/c/Users/JaJian/.ssh/id_rsa)</code></p>
+<p><code>9.  JaJian@DESKTOP-H2C0ES1 MINGW64 /d/hexo</code><br><code>10.  $ clip &lt; ~/.ssh/id_rsa.pub</code></p>
+<p>然后我们再次测试下公钥有没有添加成功：<code>ssh -T git@github.com</code></p>
+<p><code>1.  JaJian@DESKTOP-H2C0ES1 MINGW64 /d/hexo</code><br><code>2.  $ ssh -T git@github.com</code><br><code>3.  The authenticity of host &#39;github.com (13.229.188.59)&#39; can&#39;t be established.</code><br><code>4.  RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.</code><br><code>5.  Are you sure you want to continue connecting (yes/no)? yes</code><br><code>6.  Warning: Permanently added &#39;github.com,13.229.188.59&#39; (RSA) to the list of known hosts.</code><br><code>7.  Hi noobgod! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p>成功了。</p>
+<p>之后我们再次部署我们的博客网站：<code>hexo d</code></p>
+<p><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic3.png" alt=""></p>
+<p>成功。我的个人博客网站也正常显示：</p>
+<p><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic4.png" alt=""></p>
 
       
 
@@ -398,6 +446,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">研究生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
               </li>
              
@@ -407,14 +463,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">求生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">研究生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
             
             <div class="clearfix"></div>
