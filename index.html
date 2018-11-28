@@ -151,6 +151,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-github-hexo搭建博客遇到的问题" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/28/github-hexo搭建博客遇到的问题/">github+hexo搭建博客遇到的问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/28/github-hexo搭建博客遇到的问题/" class="archive-article-date">
+  	<time datetime="2018-11-28T02:31:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.hexo 发布之后 gitpage 自定义域名失效：<br>使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始 custom domain 的功能，这时候就可以直接使用自己的域名访问啦。<br><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png" alt="1"><br>但是发现一个问题是，每次配置 custom domain 之后，再次 hexo deploy 之后，custom domain 会被重置失效。<br>2.插入图片的方式：<br>1.首先把blog（hexo）目录下的_config.yml里的psot_asset_folder:设置为true</p>
+<p>2.在blog（hexo）目录下执行:</p>
+<p>npm install hexo-asset-image –save</p>
+<p>3.在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。</p>
+<p>4.将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片：</p>
+<p>![你想要输入的替代文字](xxxx/图片名.jpg)</p>
+<p>ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。</p>
+<p>5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.[html](<a href="https://edu.aliyun.com/jiaocheng/291)文件中查看相关字段，可以发现html标签内的语句是img" target="_blank" rel="noopener">https://edu.aliyun.com/jiaocheng/291)文件中查看相关字段，可以发现html标签内的语句是img</a> src = “2018/04/19/xxxx/图片名.jpg”而不是img src=”xxxx.图片名.jpg”，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/28/github-hexo搭建博客遇到的问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-研究生修炼手册（二）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
