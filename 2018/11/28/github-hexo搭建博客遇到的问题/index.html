@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>github+hexo搭建博客遇到的问题 | LeiYe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始 custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次 hexo deploy 之后，custom domain 会">
+  <meta name="description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次hexo deploy 之后，custom domain 会被重">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github+hexo搭建博客遇到的问题">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/index.html">
 <meta property="og:site_name" content="LeiYe的博客">
-<meta property="og:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始 custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次 hexo deploy 之后，custom domain 会">
+<meta property="og:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次hexo deploy 之后，custom domain 会被重">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png">
-<meta property="og:updated_time" content="2018-11-28T02:48:43.935Z">
+<meta property="og:updated_time" content="2018-11-28T03:09:55.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github+hexo搭建博客遇到的问题">
-<meta name="twitter:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始 custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次 hexo deploy 之后，custom domain 会">
+<meta name="twitter:description" content="1.hexo 发布之后 gitpage 自定义域名失效：使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始custom domain 的功能，这时候就可以直接使用自己的域名访问啦。但是发现一个问题是，每次配置 custom domain 之后，再次hexo deploy 之后，custom domain 会被重">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png">
   
     <link rel="alternative" href="/atom.xml" title="LeiYe的博客" type="application/atom+xml">
@@ -172,14 +172,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.hexo 发布之后 gitpage 自定义域名失效：<br>使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始 custom domain 的功能，这时候就可以直接使用自己的域名访问啦。<br><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png" alt="1"><br>但是发现一个问题是，每次配置 custom domain 之后，再次 hexo deploy 之后，custom domain 会被重置失效。<br>2.插入图片的方式：<br>1.首先把blog（hexo）目录下的_config.yml里的psot_asset_folder:设置为true</p>
+        <h3 id="1-hexo-发布之后-gitpage-自定义域名失效："><a href="#1-hexo-发布之后-gitpage-自定义域名失效：" class="headerlink" title="1.hexo 发布之后 gitpage 自定义域名失效："></a>1.hexo 发布之后 gitpage 自定义域名失效：</h3><p>使用 gitpage 功能将博客托管在了 github 上，并配置 CNAME 将自己的域名解析了过去，在 github 的仓库设置中开始<code>custom domain</code> 的功能，这时候就可以直接使用自己的域名访问啦。<br><img src="/2018/11/28/github-hexo搭建博客遇到的问题/pic1.png" alt="1"><br>但是发现一个问题是，每次配置 <code>custom domain</code> 之后，再次<code>hexo deploy</code> 之后，<code>custom domain</code> 会被重置失效。</p>
+<h3 id="2-插入图片的方式："><a href="#2-插入图片的方式：" class="headerlink" title="2.插入图片的方式："></a>2.插入图片的方式：</h3><p>1.首先把blog（hexo）目录下的<code>_config.yml</code>里的<code>psot_asset_folder:</code>设置为<code>true</code></p>
 <p>2.在blog（hexo）目录下执行:</p>
-<p>npm install hexo-asset-image –save</p>
-<p>3.在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。</p>
+<p><code>npm install hexo-asset-image --save</code></p>
+<p>3.在blog（hexo）目录下Git Bash Here，运行<code>hexo n 博客名</code>来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。</p>
 <p>4.将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片：</p>
-<p>![你想要输入的替代文字](xxxx/图片名.jpg)</p>
+<p><code>!\[你想要输入的替代文字]\(xxxx/图片名.jpg)</code></p>
 <p>ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。</p>
-<p>5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.[html](<a href="https://edu.aliyun.com/jiaocheng/291)\文件中查看相关字段，可以发现html标签内的语句是img" target="_blank" rel="noopener">https://edu.aliyun.com/jiaocheng/291)\文件中查看相关字段，可以发现html标签内的语句是img</a> src = “2018/04/19/xxxx/图片名.jpg”而不是img src=”xxxx.图片名.jpg”，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。</p>
+<p>5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.[html](<a href="https://edu.aliyun.com/jiaocheng/291)文件中查看相关字段，可以发现html标签内的语句是img" target="_blank" rel="noopener">https://edu.aliyun.com/jiaocheng/291)文件中查看相关字段，可以发现html标签内的语句是img</a> src = “2018/04/19/xxxx/图片名.jpg”而不是img src=”xxxx.图片名.jpg”，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。</p>
 
       
 
@@ -397,19 +398,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">研究生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">修炼</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">求生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">研究生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
             
             <div class="clearfix"></div>
