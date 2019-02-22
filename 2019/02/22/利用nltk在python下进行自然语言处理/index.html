@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>研究生修炼手册（二） | LeiYe的博客</title>
+  <title>利用nltk在python下进行自然语言处理 | LeiYe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="3. 山中无历日，寒尽不知年。-研究的历程与时间表硕士研究生的各位同学总是对研究的历程与该有的进度一无所知，因而紧张度日而难以入眠，或者轻松度过而浪费岁月。本章的目的，是简介研究的历程，与进度的合理安排。 研究主题的确定方法：针对你的候选的研究主题，逐一进行初步的文献回顾，以便于了解该主题的研究背景，包括问题的起源与背景，这个问题在现实世界与学术界的意义和价值（重要性），目前学术界比较有共识的主要">
-<meta name="keywords" content="研究生,修炼,求生">
+  <meta name="description" content="自然语言处理是计算机科学领域与人工智能领域中的一个重要方向。自然语言工具箱（NLTK，Natural Language Toolkit）是一个基于Python语言的类库，它也是当前最为流行的自然语言编程与开发工具。在进行自然语言处理研究和应用时，恰当利用NLTK中提供的函数可以大幅度地提高效率。本文就将通过一些实例来向读者介绍NLTK的使用。 开发环境：我所使用的Python版本是最新的3.5.1">
+<meta name="keywords" content="nltk,自然语言处理,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="研究生修炼手册（二）">
-<meta property="og:url" content="http://yoursite.com/2018/10/26/研究生修炼手册（二）/index.html">
+<meta property="og:title" content="利用nltk在python下进行自然语言处理">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/利用nltk在python下进行自然语言处理/index.html">
 <meta property="og:site_name" content="LeiYe的博客">
-<meta property="og:description" content="3. 山中无历日，寒尽不知年。-研究的历程与时间表硕士研究生的各位同学总是对研究的历程与该有的进度一无所知，因而紧张度日而难以入眠，或者轻松度过而浪费岁月。本章的目的，是简介研究的历程，与进度的合理安排。 研究主题的确定方法：针对你的候选的研究主题，逐一进行初步的文献回顾，以便于了解该主题的研究背景，包括问题的起源与背景，这个问题在现实世界与学术界的意义和价值（重要性），目前学术界比较有共识的主要">
+<meta property="og:description" content="自然语言处理是计算机科学领域与人工智能领域中的一个重要方向。自然语言工具箱（NLTK，Natural Language Toolkit）是一个基于Python语言的类库，它也是当前最为流行的自然语言编程与开发工具。在进行自然语言处理研究和应用时，恰当利用NLTK中提供的函数可以大幅度地提高效率。本文就将通过一些实例来向读者介绍NLTK的使用。 开发环境：我所使用的Python版本是最新的3.5.1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-28T02:10:14.511Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20160403192527255">
+<meta property="og:updated_time" content="2019-02-22T04:38:46.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="研究生修炼手册（二）">
-<meta name="twitter:description" content="3. 山中无历日，寒尽不知年。-研究的历程与时间表硕士研究生的各位同学总是对研究的历程与该有的进度一无所知，因而紧张度日而难以入眠，或者轻松度过而浪费岁月。本章的目的，是简介研究的历程，与进度的合理安排。 研究主题的确定方法：针对你的候选的研究主题，逐一进行初步的文献回顾，以便于了解该主题的研究背景，包括问题的起源与背景，这个问题在现实世界与学术界的意义和价值（重要性），目前学术界比较有共识的主要">
+<meta name="twitter:title" content="利用nltk在python下进行自然语言处理">
+<meta name="twitter:description" content="自然语言处理是计算机科学领域与人工智能领域中的一个重要方向。自然语言工具箱（NLTK，Natural Language Toolkit）是一个基于Python语言的类库，它也是当前最为流行的自然语言编程与开发工具。在进行自然语言处理研究和应用时，恰当利用NLTK中提供的函数可以大幅度地提高效率。本文就将通过一些实例来向读者介绍NLTK的使用。 开发环境：我所使用的Python版本是最新的3.5.1">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20160403192527255">
   
     <link rel="alternative" href="/atom.xml" title="LeiYe的博客" type="application/atom+xml">
   
@@ -151,30 +153,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-研究生修炼手册（二）" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-利用nltk在python下进行自然语言处理" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      研究生修炼手册（二）
+      利用nltk在python下进行自然语言处理
     </h1>
   
 
         
-        <a href="/2018/10/26/研究生修炼手册（二）/" class="archive-article-date">
-  	<time datetime="2018-10-26T09:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
+        <a href="/2019/02/22/利用nltk在python下进行自然语言处理/" class="archive-article-date">
+  	<time datetime="2019-02-22T04:38:44.890Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="3-山中无历日，寒尽不知年。"><a href="#3-山中无历日，寒尽不知年。" class="headerlink" title="3. 山中无历日，寒尽不知年。"></a>3. 山中无历日，寒尽不知年。</h3><p>-研究的历程与时间表<br>硕士研究生的各位同学总是对研究的历程与该有的进度一无所知，因而紧张度日而难以入眠，或者轻松度过而浪费岁月。本章的目的，是简介研究的历程，与进度的合理安排。</p>
-<p>研究主题的确定方法：针对你的候选的研究主题，逐一进行初步的文献回顾，以便于了解该主题的研究背景，包括问题的起源与背景，这个问题在现实世界与学术界的意义和价值（重要性），目前学术界比较有共识的主要结论，目前学术界悬而未解决的主要争议和癥结点，以及目前学术界的主要研究趋势和课题。希望这个探索的过程可以让你尽快下定决心，选定一个研究主题。  </p>
-<p>论文题目确定方法：在你选定的研究主题当中深化文献回顾，了解该主题内曾有过的各种研究子题、研究方法与研究设计，直到你对某一个具体问题有些感觉、有些想象。甚至有些模糊的主张或‘假说’，并且有兴趣进一步更深入地探讨它。这时候，你可以模仿读过的相关文献，以该领域内学术界惯用的术语和概念，给这个问题下一个标题，并且用一段话陈述你的问题意义与研究焦点，从而形成你的‘问题陈述’。  </p>
-<p>接着，针对你的论文题目，根据你过去的阅读经验，选择一组最恰当的关键词开始搜寻并筛选出与该问题密切相关的代表性论文，完成初步的文献搜寻，接着，借由文献之助，勾勒出学术界研究这个问题时所采取过的各种角度，研究的方法与流派，有共识与有争议的议题、各种主张和技术性细节，以及会影响到研究结论的所有可能因素，最后汇整处个流派的优缺点与得失，以及背后大致的原因和机制。这是一段交错着阅读、思索、分析、归纳与汇整的复杂过程。</p>
+        <p>自然语言处理是计算机科学领域与人工智能领域中的一个重要方向。自然语言工具箱（NLTK，Natural Language Toolkit）是一个基于Python语言的类库，它也是当前最为流行的自然语言编程与开发工具。在进行自然语言处理研究和应用时，恰当利用NLTK中提供的函数可以大幅度地提高效率。本文就将通过一些实例来向读者介绍NLTK的使用。</p>
+<p>开发环境：我所使用的Python版本是最新的3.5.1，NLTK版本是3.2。Python的安装不在本文的讨论范围内，我们略去不表。你可以从NLTK的官网上<a href="http://www.nltk.org/" target="_blank" rel="noopener">http://www.nltk.org/</a> 获得最新版本的NLTK。Anyway，使用pip指令来完成NLTK包的下载和安装无疑是最简便的方法。</p>
+<p>当然，当你完成这一步时，其实还不够。因为NLTK是由许多许多的包来构成的，此时运行Python，并输入下面的指令（当然，第一条指令还是要导入NLTK包）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import nltk</span><br><span class="line">&gt;&gt;&gt; nltk.download()</span><br></pre></td></tr></table></figure>
+<p>然后，Python Launcher会弹出下面这个界面，建议你选择安装所有的Packages，以免去日后一而再、再而三的进行安装，也为你的后续开发提供一个稳定的环境。某些包的Status显示“out of date”，你可以不必理会，它基本不影响你的使用与开发。</p>
+<p><img src="https://img-blog.csdn.net/20160403192527255" alt=""></p>
+<p>既然你已经安装成功，我们来小试牛刀一下。当然本文涉及的主要任务都是自然语言处理中最常用，最基础的pre-processing过程，结合机器学习的高级应用我们会在后续文章中再进行介绍。</p>
+<p>1、 Sentences Segment（分句）</p>
+<p>也就是说我们手头有一段文本，我们希望把它分成一个一个的句子。此时可以使用NLTK中的 punkt sentence segmenter。来看示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; sent_tokenizer = nltk.data.load(&apos;tokenizers/punkt/english.pickle&apos;)</span><br><span class="line">&gt;&gt;&gt; paragraph = &quot;The first time I heard that song was in Hawaii on radio. </span><br><span class="line">... I was just a kid, and loved it very much! What a fantastic song!&quot;</span><br><span class="line">&gt;&gt;&gt; sentences = sent_tokenizer.tokenize(paragraph)</span><br><span class="line">&gt;&gt;&gt; sentences</span><br><span class="line">[&apos;The first time I heard that song was in Hawaii on radio.&apos;, </span><br><span class="line"> &apos;I was just a kid, and loved it very much!&apos;, </span><br><span class="line"> &apos;What a fantastic song!&apos;]</span><br></pre></td></tr></table></figure>
+<p>由此，我们便把一段话成功分句了。</p>
+<p>2、Tokenize sentences （分词）</p>
+<p>接下来我们要把每个句话再切割成逐个单词。最简单的方法是使用NLTK 包中的 WordPunct tokenizer。来看示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from nltk.tokenize import WordPunctTokenizer</span><br><span class="line">&gt;&gt;&gt; sentence = &quot;Are you old enough to remember Michael Jackson attending </span><br><span class="line">... the Grammys with Brooke Shields and Webster sat on his lap during the show?&quot;</span><br><span class="line">&gt;&gt;&gt; words = WordPunctTokenizer().tokenize(sentence)</span><br><span class="line">&gt;&gt;&gt; words</span><br><span class="line">[&apos;Are&apos;, &apos;you&apos;, &apos;old&apos;, &apos;enough&apos;, &apos;to&apos;, &apos;remember&apos;, &apos;Michael&apos;, &apos;Jackson&apos;, &apos;attending&apos;,</span><br><span class="line"> &apos;the&apos;, &apos;Grammys&apos;, &apos;with&apos;, &apos;Brooke&apos;, &apos;Shields&apos;, &apos;and&apos;, &apos;Webster&apos;, &apos;sat&apos;, &apos;on&apos;, &apos;his&apos;,</span><br><span class="line"> &apos;lap&apos;, &apos;during&apos;, &apos;the&apos;, &apos;show&apos;, &apos;?&apos;]</span><br></pre></td></tr></table></figure>
+<p>我们的分词任务仍然完成的很好。除了WordPunct tokenizer之外，NLTK中还提供有另外三个分词方法，</p>
+<p>TreebankWordTokenizer，PunktWordTokenizer和WhitespaceTokenizer，而且他们的用法与WordPunct tokenizer也类似。然而，显然我们并不满足于此。对于比较复杂的词型，WordPunct tokenizer往往并不胜任。此时我们需要借助正则表达式的强大能力来完成分词任务，此时我所使用的函数是regexp_tokenize()。来看下面这段话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; text = &apos;That U.S.A. poster-print costs $12.40...&apos;</span><br></pre></td></tr></table></figure>
+<p>目前市面上可以参考的在Python下进行自然语言处理的书籍是由Steven Bird、Ewan Klein、Edward Loper编写的《Python 自然语言处理》。但是该书的编写时间距今已有近十年的时间，由于软件包更新等语言，在新环境下进行开发时，书中的某些代码并不能很正常的运行。最后，我们举一个书中代码out of date的例子（对上面这就话进行分词），并给出相应的解决办法。首先来看书中的一段节录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; text = &apos;That U.S.A. poster-print costs $12.40...&apos;</span><br><span class="line">&gt;&gt;&gt; pattern = r&apos;&apos;&apos;(?x)    # set flag to allow verbose regexps</span><br><span class="line">...     ([A-Z]\.)+        # abbreviations, e.g. U.S.A.</span><br><span class="line">...   | \w+(-\w+)*        # words with optional internal hyphens</span><br><span class="line">...   | \$?\d+(\.\d+)?%?  # currency and percentages, e.g. $12.40, 82%</span><br><span class="line">...   | \.\.\.            # ellipsis</span><br><span class="line">...   | [][.,;&quot;&apos;?():-_`]  # these are separate tokens; includes ], [</span><br><span class="line">... &apos;&apos;&apos;</span><br><span class="line">&gt;&gt;&gt; nltk.regexp_tokenize(text, pattern)</span><br></pre></td></tr></table></figure>
+<p>我们预期得到输出应该是这样的</p>
+<p>[‘That’, ‘U.S.A.’, ‘poster-print’, ‘costs’, ‘$12.40’, ‘…’]</p>
+<p>但是我们实际得到的输出却是这样的（注意我们所使用的NLTK版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[(&apos;&apos;, &apos;&apos;, &apos;&apos;),</span><br><span class="line"> (&apos;A.&apos;, &apos;&apos;, &apos;&apos;),</span><br><span class="line"> (&apos;&apos;, &apos;-print&apos;, &apos;&apos;),</span><br><span class="line"> (&apos;&apos;, &apos;&apos;, &apos;&apos;),</span><br><span class="line"> (&apos;&apos;, &apos;&apos;, &apos;.40&apos;),</span><br><span class="line"> (&apos;&apos;, &apos;&apos;, &apos;&apos;)]</span><br></pre></td></tr></table></figure>
+<p>会出现这样的问题是由于nltk.internals.compile_regexp_to_noncapturing()在V3.1版本的NLTK中已经被抛弃（尽管在更早的版本中它仍然可以运行），为此我们把之前定义的pattern稍作修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pattern = r&quot;&quot;&quot;(?x)                   # set flag to allow verbose regexps</span><br><span class="line">              (?:[A-Z]\.)+           # abbreviations, e.g. U.S.A.</span><br><span class="line">              |\d+(?:\.\d+)?%?       # numbers, incl. currency and percentages</span><br><span class="line">              |\w+(?:[-&apos;]\w+)*       # words w/ optional internal hyphens/apostrophe</span><br><span class="line">              |\.\.\.                # ellipsis</span><br><span class="line">              |(?:[.,;&quot;&apos;?():-_`])    # special characters with meanings</span><br><span class="line">            &quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>再次执行前面的语句，便会得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; nltk.regexp_tokenize(text, pattern)</span><br><span class="line">[&apos;That&apos;, &apos;U.S.A.&apos;, &apos;poster-print&apos;, &apos;costs&apos;, &apos;12.40&apos;, &apos;...&apos;]</span><br></pre></td></tr></table></figure>
+<h2 id="以上便是我们对NLTK这个自然语言处理工具包的初步探索，日后主页君将结合机器学习中的方法再来探讨一些更为深入的应用。最后，我想说《Python-自然语言处理》仍然是当前非常值得推荐的一本讲述利用NLTK和Python进行自然语言处理技术的非常值得推荐的书籍。"><a href="#以上便是我们对NLTK这个自然语言处理工具包的初步探索，日后主页君将结合机器学习中的方法再来探讨一些更为深入的应用。最后，我想说《Python-自然语言处理》仍然是当前非常值得推荐的一本讲述利用NLTK和Python进行自然语言处理技术的非常值得推荐的书籍。" class="headerlink" title="以上便是我们对NLTK这个自然语言处理工具包的初步探索，日后主页君将结合机器学习中的方法再来探讨一些更为深入的应用。最后，我想说《Python 自然语言处理》仍然是当前非常值得推荐的一本讲述利用NLTK和Python进行自然语言处理技术的非常值得推荐的书籍。"></a>以上便是我们对NLTK这个自然语言处理工具包的初步探索，日后主页君将结合机器学习中的方法再来探讨一些更为深入的应用。最后，我想说《Python 自然语言处理》仍然是当前非常值得推荐的一本讲述利用NLTK和Python进行自然语言处理技术的非常值得推荐的书籍。</h2><p>作者：白马负金羁<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/baimafujinji/article/details/51051505" target="_blank" rel="noopener">https://blog.csdn.net/baimafujinji/article/details/51051505</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
 
       
 
@@ -209,15 +235,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">研究生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nltk</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">修炼</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">求生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -273,7 +299,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/26/研究生修炼手册（二）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/02/22/利用nltk在python下进行自然语言处理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,18 +313,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/28/github-hexo搭建博客遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          github+hexo搭建博客遇到的问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/26/研究生修炼手册（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">研究生修炼手册（一）</div>
+    <a href="/2018/11/28/github-hexo搭建博客遇到的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">github+hexo搭建博客遇到的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
