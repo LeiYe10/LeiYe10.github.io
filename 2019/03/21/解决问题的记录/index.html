@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/10 | LeiYe的博客</title>
+  <title>解决python对csv文件操作的问题 | LeiYe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢写文字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiYe的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
+  <meta name="description" content="csv格式总是保存在第一列  解决方法： 方法一： 首先，将.csv文件保存一下，然后鼠标右击打开方式记事本。然后，以记事本的方式打开了。文件-另存为 这时弹出一个窗口，右下方，编码，这时候你就可以选择自己想要的编码格式（“utf-8”），然后保存，就可以了。 方法二： 可以修改csv的编码格式，选项→语言→英文  读取的csv文件都在第一列是什么问题？  最开始我一直在想应该是read_csv">
+<meta name="keywords" content="csv,解决问题,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决python对csv文件操作的问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/解决问题的记录/index.html">
 <meta property="og:site_name" content="LeiYe的博客">
-<meta property="og:description" content="喜欢写文字">
+<meta property="og:description" content="csv格式总是保存在第一列  解决方法： 方法一： 首先，将.csv文件保存一下，然后鼠标右击打开方式记事本。然后，以记事本的方式打开了。文件-另存为 这时弹出一个窗口，右下方，编码，这时候你就可以选择自己想要的编码格式（“utf-8”），然后保存，就可以了。 方法二： 可以修改csv的编码格式，选项→语言→英文  读取的csv文件都在第一列是什么问题？  最开始我一直在想应该是read_csv">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T03:15:49.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiYe的博客">
-<meta name="twitter:description" content="喜欢写文字">
+<meta name="twitter:title" content="解决python对csv文件操作的问题">
+<meta name="twitter:description" content="csv格式总是保存在第一列  解决方法： 方法一： 首先，将.csv文件保存一下，然后鼠标右击打开方式记事本。然后，以记事本的方式打开了。文件-另存为 这时弹出一个窗口，右下方，编码，这时候你就可以选择自己想要的编码格式（“utf-8”），然后保存，就可以了。 方法二： 可以修改csv的编码格式，选项→语言→英文  读取的csv文件都在第一列是什么问题？  最开始我一直在想应该是read_csv">
   
     <link rel="alternative" href="/atom.xml" title="LeiYe的博客" type="application/atom+xml">
   
@@ -149,175 +151,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-解决问题的记录" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决python对csv文件操作的问题
+    </h1>
+  
+
+        
+        <a href="/2019/03/21/解决问题的记录/" class="archive-article-date">
+  	<time datetime="2019-03-21T03:15:42.104Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>csv格式总是保存在第一列</li>
+</ol>
+<p>解决方法：</p>
+<p>方法一：</p>
+<p>首先，将.csv文件保存一下，然后鼠标右击打开方式记事本。然后，以记事本的方式打开了。文件-另存为 这时弹出一个窗口，右下方，编码，这时候你就可以选择自己想要的编码格式（“utf-8”），然后保存，就可以了。</p>
+<p>方法二：</p>
+<p>可以修改csv的编码格式，选项→语言→英文</p>
+<ol>
+<li>读取的csv文件都在第一列是什么问题？</li>
+</ol>
+<p>最开始我一直在想应该是read_csv函数里面的什么参数设置的问题，也怀疑是路径的问题各种给路径找问题，文件的name是<figure class="highlight plain"><figcaption><span>```x07tt_weights```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">我就想着应该是文件名的错误，可是在这个```att_weights```前面多加一个“\”路径名都没有问题了</span><br><span class="line"></span><br><span class="line">我自己在处理数据的过程中，把生成方面术语的代码生成的没有后缀的文件，我自己手动添加了一个“.csv”的后缀，在修改的过程中，我一直在考虑的是函数参数设置的问题，后来才发现，这个数据格式不能通过手动的方式进行修改，而是要直接通过函数的参数去获取源文件中的内容。（ps:如果真的需要修改文件类型，请打开文件通过“另存为”的方式来修改文件的格式，千万不要手动直接从后面添加自己想修改的格式！！！）</span><br><span class="line"></span><br><span class="line">学会了不少read_csv函数的报错，及解决问题的思路</span><br><span class="line"></span><br><span class="line">如果报错为：```Error tokenizing data. C error: Expected 10 fields in line 5, saw 12</span><br></pre></td></tr></table></figure></p>
+<p>错误是数据格式不对</p>
+<p>改正方法为：在<figure class="highlight plain"><figcaption><span>的参数中添加</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```delimiter=&apos;,&apos;```和```error_bad_lines=False</span><br></pre></td></tr></table></figure></p>
+<p>这两个参数的意思是：</p>
+<p><strong>Delimiter : str, default None</strong><br>定界符，备选分隔符（如果指定该参数，则sep参数失效）</p>
+<p>例如：</p>
+<p><code>delimiter=&#39;\t&#39;</code>  指定空格为数据分割的符号</p>
+<p><strong>header : int or list of ints, default ‘infer’</strong><br>指定行数用来作为列名，数据开始行数。如果文件中没有列名，则默认为0，否则设置为None。如果明确设定<code>header=0</code> 就会替换掉原来存在列名。header参数可以是一个list例如：<code>[0,1,3]</code>，这个list表示将文件中的这些行作为列标题（意味着每一列有多个标题），介于中间的行将被忽略掉。</p>
+<p><strong>error_bad_lines : boolean, default True</strong><br>如果一行包含太多的列，那么默认不会返回DataFrame ，如果设置成false，那么会将改行剔除（只能在C解析器下使用）。</p>
+<p>当我准备开始的庆祝一下，我终于读出了原本的数据格式的时候，我还真是想说一句，“我太年轻了”，这代码每天在想什么  我怎么可能详细的知道呢，我以为<code>error_bad_lines</code>  这个参数终于可以读到我的数据进行，终于可以进行下一步的拼接和merge的时候，我发现这个参数自动删除了一些列特别多的行，就可能把我的重点数据给自动删除了，我真的是有点崩溃的，但是问题就是需要一点点的解决，我们继续看这个问题。</p>
+<p>于是，我只能通过尝试另存为另一种格式继续进行，当我把原文件另存为csv格式的时候，我再一次用<code>read_csv</code>读取了里面的内容，还是要使用之前的问题，读出来的值自动剔除掉包含太多列的行。<br>证明，此方法不通！、</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/26/研究生修炼手册（二）/" class="archive-article-date">
-  	<time datetime="2018-10-26T09:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/26/研究生修炼手册（二）/">研究生修炼手册（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">研究生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">csv</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">修炼</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解决问题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">求生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/21/解决问题的记录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/26/研究生修炼手册（一）/" class="archive-article-date">
-  	<time datetime="2018-10-26T08:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/整理csv合并/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          整理csv合并
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/21/利用nltk在python下进行自然语言处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用nltk在python下进行自然语言处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/26/研究生修炼手册（一）/">研究生修炼手册（一）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">研究生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/24/hello-world/" class="archive-article-date">
-  	<time datetime="2018-10-24T10:48:54.038Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/24/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/10/GitHub-Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-10-10T08:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/10/GitHub-Hexo搭建个人博客/">GitHub + Hexo 搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">个人博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -340,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

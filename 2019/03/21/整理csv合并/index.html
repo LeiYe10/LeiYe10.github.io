@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/10 | LeiYe的博客</title>
+  <title>整理csv合并 | LeiYe的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜欢写文字">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LeiYe的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
+  <meta name="description" content="一、concat：沿着一条轴，将多个对象堆叠到一起 concat方法相当于数据库中的全连接（union all），它不仅可以指定连接的方式（outer join或inner join）还可以指定按照某个轴进行连接。与数据库不同的是，它不会去重，但是可以使用drop_duplicates方法达到去重的效果。 concat(objs, axis=0, join=&amp;apos;outer&amp;apos;, j">
+<meta name="keywords" content="csv,解决问题,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整理csv合并">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/整理csv合并/index.html">
 <meta property="og:site_name" content="LeiYe的博客">
-<meta property="og:description" content="喜欢写文字">
+<meta property="og:description" content="一、concat：沿着一条轴，将多个对象堆叠到一起 concat方法相当于数据库中的全连接（union all），它不仅可以指定连接的方式（outer join或inner join）还可以指定按照某个轴进行连接。与数据库不同的是，它不会去重，但是可以使用drop_duplicates方法达到去重的效果。 concat(objs, axis=0, join=&amp;apos;outer&amp;apos;, j">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T03:53:49.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeiYe的博客">
-<meta name="twitter:description" content="喜欢写文字">
+<meta name="twitter:title" content="整理csv合并">
+<meta name="twitter:description" content="一、concat：沿着一条轴，将多个对象堆叠到一起 concat方法相当于数据库中的全连接（union all），它不仅可以指定连接的方式（outer join或inner join）还可以指定按照某个轴进行连接。与数据库不同的是，它不会去重，但是可以使用drop_duplicates方法达到去重的效果。 concat(objs, axis=0, join=&amp;apos;outer&amp;apos;, j">
   
     <link rel="alternative" href="/atom.xml" title="LeiYe的博客" type="application/atom+xml">
   
@@ -149,175 +151,542 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-整理csv合并" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      整理csv合并
+    </h1>
+  
+
+        
+        <a href="/2019/03/21/整理csv合并/" class="archive-article-date">
+  	<time datetime="2019-03-21T03:53:42.566Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一、concat：沿着一条轴，将多个对象堆叠到一起</p>
+<p>concat方法相当于数据库中的全连接（union all），它不仅可以指定连接的方式（outer join或inner join）还可以指定按照某个轴进行连接。与数据库不同的是，它不会去重，但是可以使用drop_duplicates方法达到去重的效果。</p>
+<pre><code>concat(objs, axis=0, join=&apos;outer&apos;, join_axes=None, 
+ignore_index=False,keys=None, levels=None, names=None, 
+verify_integrity=False, copy=True):
+</code></pre><p> <code>pd.concat()</code>只是单纯的把两个表拼接在一起，参数axis是关键，它用于指定是行还是列，axis默认是0。当<code>axis=0</code>时，<code>pd.concat([obj1, obj2])</code>的效果与<code>obj1.append(obj2)</code>是相同的；当<code>axis=1</code>时，<code>pd.concat([obj1, obj2], axis=1)</code>的效果与<code>pd.merge(obj1, obj2, left_index=True, right_index=True, how=&#39;outer&#39;)</code>是相同的。</p>
+<p> concat参数介绍：<br>   objs：需要连接的对象集合，一般是列表或字典；<br>   axis：连接轴向；<br>   join：参数为‘outer’或‘inner’；<br>   join_axes=[]：指定自定义的索引；<br>   keys=[]：创建层次化索引；<br>   ignore_index=True：重建索引</p>
+<p>   举例：</p>
+<pre><code>df1=DataFrame(np.random.randn(3,4),columns=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;])  
+df2=DataFrame(np.random.randn(2,3),columns=[&apos;b&apos;,&apos;d&apos;,&apos;a&apos;])    
+pd.concat([df1,df2])  
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>-0.848557</td>
+<td>-1.163877</td>
+<td>-0.306148</td>
+<td>-1.163944</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1.358759</td>
+<td>1.159369</td>
+<td>-0.532110</td>
+<td>2.183934</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.532117</td>
+<td>0.788350</td>
+<td>0.703752</td>
+<td>-2.620643</td>
+</tr>
+<tr>
+<td>0</td>
+<td>-0.316156</td>
+<td>-0.707832</td>
+<td>NaN</td>
+<td>-0.416589</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.406830</td>
+<td>1.345932</td>
+<td>NaN</td>
+<td>-1.874817</td>
+</tr>
+</tbody>
+</table>
+<pre><code>pd.concat([df1,df2],ignore_index=True)
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>-0.848557</td>
+<td>-1.163877</td>
+<td>-0.306148</td>
+<td>-1.163944</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1.358759</td>
+<td>1.159369</td>
+<td>-0.532110</td>
+<td>2.183934</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.532117</td>
+<td>0.788350</td>
+<td>0.703752</td>
+<td>-2.620643</td>
+</tr>
+<tr>
+<td>3</td>
+<td>-0.316156</td>
+<td>-0.707832</td>
+<td>NaN</td>
+<td>-0.416589</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.406830</td>
+<td>1.345932</td>
+<td>NaN</td>
+<td>-1.874817</td>
+</tr>
+</tbody>
+</table>
+<p>二、merge：通过键拼接列</p>
+<pre><code>类似于关系型数据库的连接方式，可以根据一个或多个键将不同的DatFrame连接起来。该函数的典型应用场景是，针对同一个主键存在两张不同字段的表，根据主键整合到一张表里面。
+</code></pre><p>merge(left, right, how=’inner’, on=None, left_on=None, right_on=None,<br>      left_index=False, right_index=False, sort=True,<br>      suffixes=(‘_x’, ‘_y’), copy=True, indicator=False)<br>     参数介绍：</p>
+<p> left和right：两个不同的DataFrame；</p>
+<p> how：连接方式，有inner、left、right、outer，默认为inner；</p>
+<p> on：指的是用于连接的列索引名称，必须存在于左右两个DataFrame中，如果没有指定且其他参数也没有指定，则以两个DataFrame列名交集作为连接键；</p>
+<p> left_on：左侧DataFrame中用于连接键的列名，这个参数左右列名不同但代表的含义相同时非常的有用；可以是列名或数组的长度等于长度综合</p>
+<p> right_on：右侧DataFrame中用于连接键的列名；可以是列名或数组的长度等于长度综合</p>
+<p> left_index：使用左侧DataFrame中的行索引作为连接键；在与多重 （层次） 的综合，级别数必须匹配联接键从右综合的数目</p>
+<p> right_index：使用右侧DataFrame中的行索引作为连接键；在与多重 （层次） 的综合，级别数必须匹配联接键从右综合的数目</p>
+<p> sort：默认为True，将合并的数据进行排序，设置为False可以提高性能；</p>
+<p> suffixes：字符串值组成的元组，用于指定当左右DataFrame存在相同列名时在列名后面附加的后缀名称，默认为(‘_x’, ‘_y’)；</p>
+<p> copy：默认为True，总是将数据复制到数据结构中，设置为False可以提高性能；即使重新索引是不必要总是从传递的综合对象，复制的数据 （默认值True）。在许多情况下不能避免，但可能会提高性能 / 内存使用情况。可以避免复制上述案件有些病理但尽管如此提供此选项。</p>
+<p> indicator：显示合并数据中数据的来源情况,将列添加到输出综合呼吁 _merge 与信息源的每一行。_merge 是绝对类型，并对观测其合并键只出现在 ‘左’ 的综合，观测其合并键只会出现在 ‘正确’ 的综合，和两个如果观察合并关键发现在两个 right_only left_only 的值。</p>
+<p> 举例：</p>
+<h4 id="1-默认以重叠的列名当做连接键。"><a href="#1-默认以重叠的列名当做连接键。" class="headerlink" title="1.默认以重叠的列名当做连接键。"></a>1.默认以重叠的列名当做连接键。</h4><pre><code>df1=DataFrame({&apos;key&apos;:[&apos;a&apos;,&apos;b&apos;,&apos;b&apos;],&apos;data1&apos;:range(3)})    
+df2=DataFrame({&apos;key&apos;:[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;],&apos;data2&apos;:range(3)})    
+pd.merge(df1,df2)   #没有指定连接键，默认用重叠列名，没有指定连接方式  
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>data1</th>
+<th>key</th>
+<th>data2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>a</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>b</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-默认做inner连接（取key的交集），连接方式还有（left-right-outer-，制定连接方式加参数：how-39-39"><a href="#2-默认做inner连接（取key的交集），连接方式还有（left-right-outer-，制定连接方式加参数：how-39-39" class="headerlink" title="2.默认做inner连接（取key的交集），连接方式还有（left,right,outer)，制定连接方式加参数：how=&#39;&#39;"></a>2.默认做inner连接（取key的交集），连接方式还有<code>（left,right,outer)</code>，制定连接方式加参数：<code>how=&#39;&#39;</code></h4><pre><code>pd.merge(df2,df1)  #默认内连接，可以看见c没有连接上。
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>data2</th>
+<th>key</th>
+<th>data1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>a</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>b</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<pre><code>pd.merge(df2,df1,how=&apos;left&apos;)    #通过how，指定连接方式
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>data2</th>
+<th>key</th>
+<th>data1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>a</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>b</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>c</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-多键连接时将连接键组成列表传入，例：pd-merge-df1-df2-on-39-key1-39-39-key2-39"><a href="#3-多键连接时将连接键组成列表传入，例：pd-merge-df1-df2-on-39-key1-39-39-key2-39" class="headerlink" title="3.多键连接时将连接键组成列表传入，例：pd.merge(df1,df2,on=[&#39;key1&#39;,&#39;key2&#39;]"></a>3.多键连接时将连接键组成列表传入，例：<code>pd.merge(df1,df2,on=[&#39;key1&#39;,&#39;key2&#39;]</code></h4><pre><code>right=DataFrame({&apos;key1&apos;:[&apos;foo&apos;,&apos;foo&apos;,&apos;bar&apos;,&apos;bar&apos;],  
+         &apos;key2&apos;:[&apos;one&apos;,&apos;one&apos;,&apos;one&apos;,&apos;two&apos;],  
+         &apos;lval&apos;:[4,5,6,7]})  
+left=DataFrame({&apos;key1&apos;:[&apos;foo&apos;,&apos;foo&apos;,&apos;bar&apos;],  
+         &apos;key2&apos;:[&apos;one&apos;,&apos;two&apos;,&apos;one&apos;],  
+         &apos;lval&apos;:[1,2,3]})  
+right=DataFrame({&apos;key1&apos;:[&apos;foo&apos;,&apos;foo&apos;,&apos;bar&apos;,&apos;bar&apos;],  
+         &apos;key2&apos;:[&apos;one&apos;,&apos;one&apos;,&apos;one&apos;,&apos;two&apos;],  
+         &apos;lval&apos;:[4,5,6,7]})  
+pd.merge(left,right,on=[&apos;key1&apos;,&apos;key2&apos;],how=&apos;outer&apos;)  #传出数组  
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>key1</th>
+<th>key2</th>
+<th>lval_x</th>
+<th>lval_y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>0</td>
+<td>foo</td>
+<td>one</td>
+<td>1</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>foo</td>
+<td>one</td>
+<td>1</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>2</td>
+<td>foo</td>
+<td>two</td>
+<td>2</td>
+<td>NaN</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>3</td>
+<td>bar</td>
+<td>one</td>
+<td>3</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>4</td>
+<td>bar</td>
+<td>two</td>
+<td>NaN</td>
+<td>7</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-如果两个对象的列名不同，可以分别指定，例：pd-merge-df1-df2-left-on-39-lkey-39-right-on-39-rkey-39"><a href="#4-如果两个对象的列名不同，可以分别指定，例：pd-merge-df1-df2-left-on-39-lkey-39-right-on-39-rkey-39" class="headerlink" title="4.如果两个对象的列名不同，可以分别指定，例：pd.merge(df1,df2,left_on=&#39;lkey&#39;,right_on=&#39;rkey&#39;)"></a>4.如果两个对象的列名不同，可以分别指定，例：<code>pd.merge(df1,df2,left_on=&#39;lkey&#39;,right_on=&#39;rkey&#39;)</code></h4><pre><code>df3=DataFrame({&apos;key3&apos;:[&apos;foo&apos;,&apos;foo&apos;,&apos;bar&apos;,&apos;bar&apos;], #将上面的right的key 改了名字  
+         &apos;key4&apos;:[&apos;one&apos;,&apos;one&apos;,&apos;one&apos;,&apos;two&apos;],  
+         &apos;lval&apos;:[4,5,6,7]})  
+pd.merge(left,df3,left_on=&apos;key1&apos;,right_on=&apos;key3&apos;)  #键名不同的连接  
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>key1</th>
+<th>key2</th>
+<th>lval_x</th>
+<th>key3</th>
+<th>key4</th>
+<th>lval_y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>foo</td>
+<td>one</td>
+<td>1</td>
+<td>foo</td>
+<td>one</td>
+<td>4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>foo</td>
+<td>one</td>
+<td>1</td>
+<td>foo</td>
+<td>one</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>foo</td>
+<td>two</td>
+<td>2</td>
+<td>foo</td>
+<td>one</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>foo</td>
+<td>two</td>
+<td>2</td>
+<td>foo</td>
+<td>one</td>
+<td>5</td>
+</tr>
+<tr>
+<td>4</td>
+<td>bar</td>
+<td>one</td>
+<td>3</td>
+<td>bar</td>
+<td>one</td>
+<td>6</td>
+</tr>
+<tr>
+<td>5</td>
+<td>bar</td>
+<td>one</td>
+<td>3</td>
+<td>bar</td>
+<td>two</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>三、join：主要用于索引上的合并</p>
+<p>join(self, other, on=None, how=’left’, lsuffix=’’, rsuffix=’’,sort=False):<br> 其参数的意义与merge方法中的参数意义基本一样。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/26/研究生修炼手册（二）/" class="archive-article-date">
-  	<time datetime="2018-10-26T09:00:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/26/研究生修炼手册（二）/">研究生修炼手册（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">研究生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">csv</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">修炼</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">解决问题</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">求生</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/21/整理csv合并/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/26/研究生修炼手册（一）/" class="archive-article-date">
-  	<time datetime="2018-10-26T08:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/21/解决问题的记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决python对csv文件操作的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/26/研究生修炼手册（一）/">研究生修炼手册（一）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">研究生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/24/hello-world/" class="archive-article-date">
-  	<time datetime="2018-10-24T10:48:54.038Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/24/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/10/GitHub-Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2018-10-10T08:05:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/10/GitHub-Hexo搭建个人博客/">GitHub + Hexo 搭建个人博客</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">个人博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -340,8 +709,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
